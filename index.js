@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const urlEncoded = bodyParser.urlencoded({extended: false})
 
-const dummyData = [{taskItem: "Work on my portfolio" },{taskItem: "Code and watch anime"},{taskItem: "Sleep"}];
+const dummyData = [{blogTitle: "Work on my blog", blogBody: "Working" }];
 
 //setting up
 const app = express();
@@ -16,9 +16,9 @@ app.use(express.static('./public'));
 //########### ROUTES ############
 
 //Get for Tasks: returns all tasks
-app.get('/', (req, res) => {
+app.get('/myblog', (req, res) => {
     //rendering tasks view and passing taskToDo data
-    res.render('tasks', {taskToDo: dummyData});
+    res.render('myblog', {taskToDo: dummyData});
 });
 
 // Post for tasks: posting a task
@@ -27,7 +27,7 @@ app.post('/tasks', urlEncoded, function(req, res){
   let incomingItem = {}
   incomingItem.taskItem = req.body.task
   dummyData.push(incomingItem)
-  res.redirect('/')
+  res.redirect('/myblog')
 });
 
 //Delete for tasks: deleting specific tasks
@@ -36,6 +36,13 @@ app.delete("/tasks/:id", function(req, res){
     dummyData.splice(req.params.id, 1);
     res.json(dummyData)
 });
+
+app.get('/home', (req, res) => {
+  //rendering tasks view and passing taskToDo data
+  res.render('home.ejs', {taskToDo: dummyData});
+});
+
+
 
   app.listen(3000, function(err){
     if (err)
