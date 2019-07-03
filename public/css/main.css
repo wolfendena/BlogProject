@@ -1,0 +1,29 @@
+body {
+    background-color: #000033;
+}
+
+h1 {
+    background: url('../ninja-logo.png') no-repeat center;
+    text-indent: -10000px;
+    margin-bottom: 0;
+}
+
+.container {
+    background-color: #0c1521;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+.list-group-item {
+    background-color: #000099;
+}
+
+.btn {
+    background-color: #f11421;
+}
+
+li:hover {
+    text-decoration: line-through;
+    background: rgb(0,0,0,0.2);
+    cursor: pointer; 
+}
