@@ -45,7 +45,7 @@ app.get('/home', (req, res) => {
 
 
   app.listen(3000, function(err){
-    if (err)
+    if (err) throw (err)
         console.log(err)
     console.log('Server is live on port 3000')
 })  
