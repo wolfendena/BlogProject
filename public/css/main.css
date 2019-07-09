@@ -62,9 +62,28 @@ t {
 }
 
 
-img {
+#Penguin {
     height: auto;
     width: auto;
     max-width: 300px;
     max-height: 300px;
+    box-shadow: 5px 5px 10px 10px grey;
 }
+
+div {
+    width: 300px;
+    border: 10px solid black;
+    color: black;
+    background-color: white;
+    background-image: inherit;  
+    padding: 25px;
+    margin: 25px;
+  }
+
+  #Roger {
+    height: auto;
+    width: auto;
+    max-width: 300px;
+    max-height: 300px;
+    box-shadow: 5px 5px 10px 10px grey;
+    
