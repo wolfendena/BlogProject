@@ -24,8 +24,10 @@
 
             <h1>My Blog Creator</h1>
         <form action="/tasks" method="POST" class="mt-0">
+            <input class="form-control form-control-lg" type="text" name="task" placeholder="Add title ..." required>
             <input class="form-control form-control-lg" type="text" name="task" placeholder="Add Body ..." required>
             <button type="submit" class="btn btn-primary btn-lg mt-1 mb-5 btn-block">Add Blog</button>
+
         </form>
         <ul class="list-group list-group-flush mt-5 text-light">
             <% for ( let i=0; i < taskToDo.length;  i++ ){%>
