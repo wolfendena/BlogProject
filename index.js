@@ -28,7 +28,7 @@ app.use(express.static('./public'));
 
 //########### ROUTES ############
 
-//Get for Tasks: returns all tasks
+//Get for myblog: returns all tasks
 app.get('/myblog', (req, res) => {
   let sql = 'SELECT * FROM blog';
   db.query(sql, function (err, results) {
@@ -38,14 +38,16 @@ app.get('/myblog', (req, res) => {
   });
 });
 
-// Post for tasks: posting a task
-// app.post('/tasks', urlEncoded, function(req, res){
-//   //formatting for incoming data to add to my dataset
-//   let incomingItem = {}
-//   incomingItem.taskItem = req.body.task
-//   db.push(incomingItem)
-// res.redirect('/myblog')
-// });
+//Get for Blogs: returns all tasks
+app.get('blog.ejs', (req, res) => {
+  let sql = 'SELECT body FROM blog';
+  db.query(sql, function (err, results) {
+    if (err) throw err;
+    //rendering tasks view and passing taskToDo data
+    res.render('Blogs.ejs', {taskToDo: results});
+  });
+});
+
 
 app.post('/myblog', urlEncoded, (req, res) => {
   let task = req.body
@@ -58,7 +60,6 @@ app.post('/myblog', urlEncoded, (req, res) => {
       res.redirect('myblog')
     });
   });
-
 
 //Delete for tasks: deleting specific tasks
 app.delete("/tasks/:id", function(req, res){
