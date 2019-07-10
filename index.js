@@ -47,14 +47,15 @@ app.get('/myblog', (req, res) => {
 // res.redirect('/myblog')
 // });
 
-app.post('/tasks', urlEncoded, (req, res) => {
+app.post('/myblog', urlEncoded, (req, res) => {
   let task = req.body
-  let sql = 'INSERT INTO task SET ?' ;
+  console.log(req.body);
+  let sql = 'INSERT INTO blog SET ?' ;
   db.query(sql, task, function (err, results) {
       if (err) throw err;
       // rendering tasks view and passing taskToDo data
       console.log(results)
-      res.redirect('/myblog')
+      res.redirect('myblog')
     });
   });
 
